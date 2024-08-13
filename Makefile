@@ -3,16 +3,16 @@
 # license that can be found in the LICENSE file.
 
 #
-# MnBook: Mini Markdown Book
-# https://github.com/wa-lang/mnbook
+# waBook: Mini Markdown Book
+# https://github.com/wa-lang/wabook
 #
 
 default:
-	mnbook serve
+	wabook serve
 
 build:
 	-rm book
-	mnbook build
+	wabook build
 	-rm book/.gitignore
 	-rm book/.nojekyll
 	-rm -rf book/.git
@@ -28,7 +28,7 @@ build-talks:
 
 deploy:
 	-@make clean
-	mnbook build
+	wabook build
 	-rm book/.gitignore
 	-rm -rf book/.git
 	-rm -rf book/examples
