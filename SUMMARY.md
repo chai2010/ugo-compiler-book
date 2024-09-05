@@ -8,6 +8,11 @@
   - [最小编译器](./ch1-basic/ch1-02-mini-compiler.md)
   - [LLVM汇编简介](./ch1-basic/ch1-03-llvm-ir.md)
 - [表达式](./ch2-expr/readme.md)
+- [最小µGo程序](./ch3-hello-ugo/readme.md)
+- [变量和作用域](./ch4-block-and-var/readme.md)
+- [if分支和for循环](./ch5-if-for/readme.md)
+- [函数和递归](./ch6-func/readme.md)
+- [多文件和多包支持](./ch7-pkgs-files/readme.md)
 - [附录](./appendix/readme.md)
 
 <!--
