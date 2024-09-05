@@ -37,7 +37,7 @@ const Pi_2 = Pi * 2
 
 type MyInt :int
 
-var x = println(1 + 2*(3+4) + -10 + double(50))
+global x = println(1 + 2*(3+4) + -10 + double(50))
 
 func println() => int
 

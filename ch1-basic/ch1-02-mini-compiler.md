@@ -5,11 +5,9 @@
 比如 0 表示 `os.Exit(0)`。它对应以下的Go程序：
 
 ```go
-package main;
-
 import "os"
 
-func main() {
+func main {
 	os.Exit(0)
 }
 ```
@@ -37,26 +35,34 @@ clang 将汇编程序编译为本地可执行程序，然后执行 a.out 程序�
 
 最小编译器就是将输入的整数翻译为可执行程序的返回该状态码的本地程序：
 
-```go
-func compile(code string) {
-	output := fmt.Sprintf(tmpl, code)
-	os.WriteFile("a.out.ll", []byte(output), 0666)
-	exec.Command("clang", "-Wno-override-module", "-o", "a.out", "a.out.ll").Run()
+```wa
+func compile(code: string) {
+	output := strings.ReplaceAll(tmpl, `{{.V}}`, code)
+	println(output)
 }
 
 const tmpl = `
 define i32 @main() {
-	ret i32 %v
+	ret i32 {{.V}}
 }
 `
 ```
 
 其中 compile 是编译函数，将从stdin输入的代码先编译为汇编程序，然后调用clang将汇编程序编译为本地可执行程序（`tmpl`是输出汇编的模板）。
 
+比如有以下main函数表示将123编译为可执行程序：
+
+```wa
+func main {
+	compile(`123`)
+}
+```
+
 通过以下命令将输入的状态码编译为一个对应的可执行程序：
 
 ```shell
-$ echo 123 | go run main.go
+$ wa run main.wa > _main.ll
+$ clang -Wno-override-module -o a.out _main.ll
 $ ./a.out
 $ echo $?
 123
