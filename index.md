@@ -1,8 +1,8 @@
-# µGo语言实现——从头开发一个迷你Go语言编译器
+# µGo语言实现——从头开发一个迷你语言编译器
 
 本书尝试以实现 µGo 编译器为线索，以边学习边完善的自举方式实现一个玩具语言。
 
-![](cover.png)
+![](cover.svg)
 
 - 仓库地址: [https://github.com/wa-lang/ugo-compiler-book](https://github.com/wa-lang/ugo-compiler-book)
 - 示例代码: [https://github.com/wa-lang/ugo](https://github.com/wa-lang/ugo) (和章节对应的分支)

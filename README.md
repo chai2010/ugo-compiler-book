@@ -1,4 +1,4 @@
-# 《µGo语言实现——从头开发一个迷你Go语言编译器》
+# 《µGo语言实现——从头开发一个迷你语言编译器》
 
 - *凹语言(专为 WebAssembly 设计): https://github.com/wa-lang/wa*
 - *WaBook(Go语言实现的MD电子书构建工具): https://github.com/wa-lang/wabook*
@@ -7,7 +7,7 @@
 
 本书尝试以实现 µGo 编译器为线索，以边学习边完善的自举方式实现一个玩具语言。
 
-![](cover.png)
+![](cover.svg)
 
 - 在线阅读(Go版本): https://wa-lang.github.io/ugo-compiler-book/
 - 示例代码(Go版本): [https://github.com/wa-lang/ugo](https://github.com/wa-lang/ugo) (和章节对应的分支)
@@ -21,27 +21,27 @@
 - 因为坑就在那里
 - 挖坑的工具差不多齐全了
 - 为了启动 [凹语言](https://github.com/wa-lang/wa) 的热身项目
+- 凹语言项目已过5年, 完成了当初不做玩具车的目标, 是时候向凹语言迁移了
 - ？
 
 ## What: µGo 例子
 
-```go
-package main
+µGo 最初是Go语言的子集, 也是凹语言项目的起点. 所以说µGo现在更像是凹语言的子集, 当然µGo是一个玩具语言.
 
+```go
 import "libc"
-import m "libc.math"
+import "libc.math" => m
 
 const Pi = 3.14
 const Pi_2 = Pi * 2
 
-type MyInt int
-type MyInt2 = int
+type MyInt :int
 
 var x = println(1 + 2*(3+4) + -10 + double(50))
 
-func println() int
+func println() => int
 
-func main() int {}
+func main => int {}
 ```
 
 ## Output: 输出的目标格式
@@ -50,4 +50,4 @@ func main() int {}
 
 ## License 版权
 
-学习目的可在 Github 平台免费阅读。
+学习目的可免费阅读。
