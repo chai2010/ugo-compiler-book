@@ -4,7 +4,7 @@
 
 比如 0 表示 `os.Exit(0)`。它对应以下的Go程序：
 
-```go
+```wa
 import "os"
 
 func main {

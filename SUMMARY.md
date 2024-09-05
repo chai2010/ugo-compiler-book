@@ -8,6 +8,10 @@
   - [最小编译器](./ch1-basic/ch1-02-mini-compiler.md)
   - [LLVM汇编简介](./ch1-basic/ch1-03-llvm-ir.md)
 - [表达式](./ch2-expr/readme.md)
+- [附录](./appendix/readme.md)
+
+<!--
+- [表达式](./ch2-expr/readme.md)
   - [加减法表达式](./ch2-expr/ch2-01-add-sub.md)
   - [乘除法表达式](./ch2-expr/ch2-02-mul-div.md)
   - [解析表达式语法树](./ch2-expr/ch2-03-parser.md)
@@ -36,9 +40,7 @@
   - [import语句](./ch7-pkgs-files/ch7-01.md)
   - [多文件和包依赖](./ch7-pkgs-files/ch7-02.md)
   - [ugopath配置信息](./ch7-pkgs-files/ch7-03.md)
-- [附录](./appendix/readme.md)
 
-<!--
 - [字符串](./ch8-string/readme.md)
 - [数组](./ch9-array/readme.md)
 - [map](./ch10-map/readme.md)
