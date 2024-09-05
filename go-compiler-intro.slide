@@ -5,28 +5,15 @@ chai2010
 chaishushan@gmail.com
 https://github.com/wa-lang/ugo-compiler-book
 
-// 感谢 Go+ 社区的支持
-
 // -----------------------------------------------------------------------------
 
 ## 自我介绍(chai2010)
 
-- Go代码贡献者([golang](https://github.com/golang/go/commits?author=chai2010), [go.image](https://github.com/golang/image/commits?author=chai2010))
-- 蚂蚁集团从事云原生、蚂蚁链DSL语言设计和研发工作([招贤纳士](https://github.com/wa-lang/ugo-compiler-book/blob/master/jobs.md))
-- [《µGo语言实现(从头开发一个迷你语言编译器)》](https://github.com/wa-lang/ugo-compiler-book) 作者
-- [《Go语法树入门(出版名:Go语言定制指南)》](https://github.com/chai2010/go-ast-book) 作者
 - [《Go语言高级编程》](https://github.com/chai2010/advanced-go-programming-book) 作者
+- [《Go语法树入门(出版名:Go语言定制指南)》](https://github.com/chai2010/go-ast-book) 作者
+- Go代码贡献者([golang](https://github.com/golang/go/commits?author=chai2010), [go.image](https://github.com/golang/image/commits?author=chai2010))
 
 .image go-compiler-intro/images/chai2010.png
-
-## 我的图书(原创)
-
-.image go-compiler-intro/images/mybooks-01.png 580 800
-
-## 我的图书(翻译)
-
-.image go-compiler-intro/images/mybooks-02.png
-
 
 // -----------------------------------------------------------------------------
 ## 主题大纲
@@ -330,6 +317,7 @@ Go语言重新实现如下人肉编译器:
 - Go 语言的 `go/*` 包太好用
 - 少是指数级的多 (Less is exponentially more)
 - 因此 Go 社区诞生了很多衍生的定制语言
+- uGo 也是凹语言的起点
 
 ---
 
@@ -372,10 +360,6 @@ Go语言重新实现如下人肉编译器:
 ## 感谢 Ian 推荐序
 
 .image go-compiler-intro/images/preface-ian.png
-
-## 感谢 许大 (Go 和 Go+ 的全部工作)
-
-.image go-compiler-intro/images/xu-gobook.jpg 500 900
 
 // -----------------------------------------------------------------------------
 
