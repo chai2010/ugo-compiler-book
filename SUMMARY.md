@@ -36,6 +36,9 @@
   - [import语句](./ch7-pkgs-files/ch7-01.md)
   - [多文件和包依赖](./ch7-pkgs-files/ch7-02.md)
   - [ugopath配置信息](./ch7-pkgs-files/ch7-03.md)
+- [附录](./appendix/readme.md)
+
+<!--
 - [字符串](./ch8-string/readme.md)
 - [数组](./ch9-array/readme.md)
 - [map](./ch10-map/readme.md)
@@ -50,4 +53,4 @@
 - [类型系统](./ch19-type-system/readme.md)
 - [自举](./ch20-bootstrap/readme.md)
 - [LSP服务](./ch21-lsp/readme.md)
-- [附录](./appendix/readme.md)
+-->

@@ -6,7 +6,7 @@
 
 - 仓库地址: [https://github.com/wa-lang/ugo-compiler-book](https://github.com/wa-lang/ugo-compiler-book)
 - 示例代码: [https://github.com/wa-lang/ugo](https://github.com/wa-lang/ugo) (和章节对应的分支)
-- 社区分享: [Go编译器定制简介](https://wa-lang.org/ugo-compiler-book/talks/go-compiler-intro.html)
+- 社区分享: [Go编译器定制简介](go-compiler-intro.html)
 
 ---
 
