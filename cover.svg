@@ -1,0 +1,43 @@
+<!--
+// 版权 @2019 凹语言 作者。保留所有权利。
+// https://wa-lang.org
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 660">
+
+<!-- 外边框 -->
+<polyline points="1,1 519,1 519,659 1,659 1,1" style="fill:none;stroke:black;stroke-width:1"/>
+
+<!-- 顶部横条 -->
+<rect x="50" y="1" width="420" height="20" style="fill:SteelBlue;stroke:none;"/>
+
+<!-- 系列图书 -->
+<text x="190" y="40" fill="black" font-style="italic" font-size="20px">凹语言挖坑系列</text>
+
+<!-- 标题横条 -->
+<rect x="50" y="80" width="420" height="150" style="fill:SteelBlue;stroke:none;"/>
+
+<!-- 主标题 -->
+<text x="65" y="180" fill="white" font-size="65px" font-weight="bold">µGo语言实现</text>
+
+<!-- 副标题 -->
+<text x="65" y="260" fill="black" font-style="italic" font-size="30px">从头开发一个迷你语言编译器</text>
+
+<!-- 出版社 -->
+<text x="50" y="620" fill="black" font-style="italic" font-size="20px">开源出版社</text>
+
+<!-- 作者 -->
+<text x="320" y="620" fill="black" font-style="italic" font-size="20px">凹语言开发组 著</text>
+
+<!-- 中间图像 -->
+<!--
+// 外部图像Chrome直接打开可以, 但是有些场景不能工作. 最终输出改成 Base64 内联.
+// base64 -i input-file -o output.txt
+
+<image x="150" y="320" width="220" height="220" href="icons/logo-round-color-LightSeaGreen.svg" />
+-->
+
+<image x="150" y="320" width="220" height="220" href="data:image/svg+xml;base64,
+CjwhLS0KLy8g54mI5p2DIEAyMDE5IOWHueivreiogCDkvZzogIXjgILkv53nlZnmiYDmnInmnYPliKnjgIIKLy8gaHR0cHM6Ly93YS1sYW5nLm9yZwotLT4KCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgoJdmlld0JveD0iMCAwIDQwMCA0MDAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIgoJc3R5bGU9ImJvcmRlcjogMHB4IHNvbGlkIHJlZCIKPgoKPHBhdGgKCXN0cm9rZT0ibm9uZSIgZmlsbD0iTGlnaHRTZWFHcmVlbiIKCWQ9Ik02MCw1MCBoOTAgdjEwMCBoMTAwIHYtMTAwIGg5MCBsMTAsMTAgdjI4MCBsLTEwLDEwIGgtMjgwIGwtMTAsLTEwIHYtMjgwIgovPgoKPHBhdGgKCXN0cm9rZT0ibm9uZSIgZmlsbD0id2hpdGUiCglkPSJNMTAwLDEwMCBtLTUsLTUgaDEwIHYxMCBoLTEwIgovPgoKPHBhdGgKCXN0cm9rZT0ibm9uZSIgZmlsbD0id2hpdGUiCglkPSJNNDAwLDEwMCBtLTEwMCwwIG0tNSwtNSBoMTAgdjEwIGgtMTAiCi8+Cgo8cGF0aAoJc3Ryb2tlPSJ3aGl0ZSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiCglkPSJNMjAwLDIzMCBsMzQsMzQgbDM0LC0zNCBNMjAwLDIzMCBsLTM0LDM0IGwtMzQsLTM0IgovPgoKPC9zdmc+Cg==" />
+
+</svg>

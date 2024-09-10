@@ -1,0 +1,16 @@
+import "strings"
+
+func main {
+	compile(`123`)
+}
+
+func compile(code: string) {
+	output := strings.ReplaceAll(tmpl, `{{.V}}`, code)
+	println(output)
+}
+
+const tmpl = `
+define i32 @main() {
+	ret i32 {{.V}}
+}
+`
