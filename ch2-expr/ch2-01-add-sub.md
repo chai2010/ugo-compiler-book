@@ -16,43 +16,43 @@ define i32 @main() {
 
 如果将输入的`1+3-2`转化为`[]string{"1", "+", "3", "-", "2"}` 形式，我们则可以通过以下代码输出对应的汇编程序：
 
-```go
-func gen_asm(tokens []string) string {
-	var buf bytes.Buffer
-	fmt.Fprintln(&buf, `define i32 @main() {`)
+```wa
 
-	var idx int
+func genAsm(tokens: []string) => string {
+	sb: strings.Builder
+	sb.WriteString("define i32 @main() {\n")
+
+	idx: int
 	for i, tok := range tokens {
 		if i == 0 {
-			fmt.Fprintf(&buf, "\t%%t%d = add i32 0, %v\n",
-				idx, tokens[i],
-			)
+			t0 := "%t" + strconv.Itoa(idx)
+			sb.WriteString("\t" + t0 + " = add i32 0, " + tokens[i] + "\n")
 			continue
 		}
 		switch tok {
 		case "+":
 			idx++
-			fmt.Fprintf(&buf, "\t%%t%d = add i32 %%t%d, %v\n",
-				idx, idx-1, tokens[i+1],
-			)
+			t0 := "%t" + strconv.Itoa(idx)
+			t1 := "%t" + strconv.Itoa(idx-1)
+			sb.WriteString("\t" + t0 + " = add i32 " + t1 + ", " + tokens[i+1] + "\n")
 		case "-":
 			idx++
-			fmt.Fprintf(&buf, "\t%%t%d = sub i32 %%t%d, %v\n",
-				idx, idx-1, tokens[i+1],
-			)
+			t0 := "%t" + strconv.Itoa(idx)
+			t1 := "%t" + strconv.Itoa(idx-1)
+			sb.WriteString("\t" + t0 + " = sub i32 " + t1 + ", " + tokens[i+1] + "\n")
 		}
 	}
-	fmt.Fprintf(&buf, "\tret i32 %%t%d\n", idx)
-	fmt.Fprintln(&buf, `}`)
+	sb.WriteString("\tret i32 %t" + strconv.Itoa(idx) + "\n")
+	sb.WriteString(`}`)
 
-	return buf.String()
+	return sb.String()
 }
 ```
 
 而如何将输入的字符串拆分为记号数组本质上属于词法分析的问题。我们先以最简单的方式实现：
 
-```go
-func parse_tokens(code string) (tokens []string) {
+```wa
+func parseTokens(code: string) => (tokens: []string) {
 	for code != "" {
 		if idx := strings.IndexAny(code, "+-"); idx >= 0 {
 			if idx > 0 {
@@ -74,62 +74,28 @@ func parse_tokens(code string) (tokens []string) {
 
 然后对上个版本的compile函数稍加改造以支持加法和减法的运算表达式编译：
 
-```go
-func compile(code string) {
-	tokens := parse_tokens(code)
-	output := gen_asm(tokens)
-
-	os.WriteFile("a.out.ll", []byte(output), 0666)
-	exec.Command("clang", "-Wno-override-module", "-o", "a.out", "a.out.ll").Run()
+```wa
+func compile(code: string) {
+	tokens := parseTokens(code)
+	output := genAsm(tokens)
+	println(output)
 }
 ```
 
-为了便于测试，我们再包装一个run函数：
 
-```go
-func run(code string) int {
-	compile(code)
-	if err := exec.Command("./a.out").Run(); err != nil {
-		return err.(*exec.ExitError).ExitCode()
-	}
-	return 0
-}
-```
+更新main函数：
 
-run函数将输入的表达式程序编译并运行、最后返回状态码。然后构造单元测试：
-
-```go
-func TestRun(t *testing.T) {
-	for i, tt := range tests {
-		if got := run(tt.code); got != tt.value {
-			t.Fatalf("%d: expect = %v, got = %v", i, tt.value, got)
-		}
-	}
-}
-
-var tests = []struct {
-	code  string
-	value int
-}{
-	{code: "1", value: 1},
-	{code: "1+1", value: 2},
-	{code: "1 + 3 - 2  ", value: 2},
-	{code: "1+2+3+4", value: 10},
-}
-```
-
-确认单元测试没有问题后，更新main函数：
-
-```go
-func main() {
-	code, _ := io.ReadAll(os.Stdin)
-	fmt.Println(run(string(code)))
+```wa
+func main {
+	compile(`1+2+3`)
 }
 ```
 
 通过以下命令执行：
 
 ```
-$ echo "1+2+3" | go run main.go 
+$ wa run main.wa > _main.ll
+$ clang -Wno-override-module -o a.out _main.ll
+$ ./a.out || echo $?
 6
 ```

@@ -1,0 +1,59 @@
+import "strings"
+import "strconv"
+
+func main {
+	compile(`1+2+3`)
+}
+
+func compile(code: string) {
+	tokens := parseTokens(code)
+	output := genAsm(tokens)
+	println(output)
+}
+
+func parseTokens(code: string) => (tokens: []string) {
+	for code != "" {
+		if idx := strings.IndexAny(code, "+-"); idx >= 0 {
+			if idx > 0 {
+				tokens = append(tokens, strings.TrimSpace(code[:idx]))
+			}
+			tokens = append(tokens, code[idx:][:1])
+			code = code[idx+1:]
+			continue
+		}
+
+		tokens = append(tokens, strings.TrimSpace(code))
+		return
+	}
+	return
+}
+
+func genAsm(tokens: []string) => string {
+	sb: strings.Builder
+	sb.WriteString("define i32 @main() {\n")
+
+	idx: int
+	for i, tok := range tokens {
+		if i == 0 {
+			t0 := "%t" + strconv.Itoa(idx)
+			sb.WriteString("\t" + t0 + " = add i32 0, " + tokens[i] + "\n")
+			continue
+		}
+		switch tok {
+		case "+":
+			idx++
+			t0 := "%t" + strconv.Itoa(idx)
+			t1 := "%t" + strconv.Itoa(idx-1)
+			sb.WriteString("\t" + t0 + " = add i32 " + t1 + ", " + tokens[i+1] + "\n")
+		case "-":
+			idx++
+			t0 := "%t" + strconv.Itoa(idx)
+			t1 := "%t" + strconv.Itoa(idx-1)
+			sb.WriteString("\t" + t0 + " = sub i32 " + t1 + ", " + tokens[i+1] + "\n")
+		}
+	}
+	sb.WriteString("\tret i32 %t" + strconv.Itoa(idx) + "\n")
+	sb.WriteString(`}`)
+
+	return sb.String()
+}

@@ -8,6 +8,7 @@
   - [最小编译器](./ch1-basic/ch1-02-mini-compiler.md)
   - [LLVM汇编简介](./ch1-basic/ch1-03-llvm-ir.md)
 - [表达式](./ch2-expr/readme.md)
+  - [加减法表达式](./ch2-expr/ch2-01-add-sub.md)
 - [最小µGo程序](./ch3-hello-ugo/readme.md)
 - [变量和作用域](./ch4-block-and-var/readme.md)
 - [if分支和for循环](./ch5-if-for/readme.md)
@@ -17,7 +18,6 @@
 
 <!--
 - [表达式](./ch2-expr/readme.md)
-  - [加减法表达式](./ch2-expr/ch2-01-add-sub.md)
   - [乘除法表达式](./ch2-expr/ch2-02-mul-div.md)
   - [解析表达式语法树](./ch2-expr/ch2-03-parser.md)
   - [重构解析器](./ch2-expr/ch2-04-parser-v2.md)
